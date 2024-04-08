@@ -21,7 +21,7 @@ public class Main {
             \t6. Peso colombiano =>> Dólar
             \t7. Show all supported currencies
             \t8. Custom exchange
-            \t9. Show history
+            \t9. Show conversion history
             \t%d. Exit
             >>>\s""".formatted(EXIT_OPTION);
 

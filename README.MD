@@ -31,7 +31,8 @@ The application presents a menu with several options:
 6. Convert from Colombian Peso to USD
 7. Show all supported currencies
 8. Custom exchange
-9. Exit
+9. Show conversion history
+10. Exit
 
 Enter the number of the option you want to select, then follow the prompts.
 
