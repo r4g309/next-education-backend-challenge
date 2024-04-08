@@ -1,6 +1,7 @@
 package dev.r4g309;
 
 import dev.r4g309.utils.Environment;
+import dev.r4g309.utils.HistoryManager;
 import dev.r4g309.utils.UserInput;
 
 import java.math.BigDecimal;
@@ -9,6 +10,7 @@ import java.util.Objects;
 
 public class Main {
     public static String API_URL = "https://v6.exchangerate-api.com/v6/%s/";
+    public static final int EXIT_OPTION = 10;
     public static final String menu = """
             Exchange Rate, choose an option:
             \t1. Dólar =>> Peso argentino
@@ -19,8 +21,9 @@ public class Main {
             \t6. Peso colombiano =>> Dólar
             \t7. Show all supported currencies
             \t8. Custom exchange
-            \t9. Exit
-            >>>\s""";
+            \t9. Show history
+            \t%d. Exit
+            >>>\s""".formatted(EXIT_OPTION);
 
     public static void main(String[] args) {
         int option;
@@ -58,7 +61,6 @@ public class Main {
                 case 6 -> {
                     BigDecimal userAmount = userInput.getBigDecimal();
                     CurrencyMoney.convertCurrency(DefaultCurrency.COP, DefaultCurrency.USD, userAmount, apiRepo);
-
                 }
                 case 7 -> {
                     System.out.println("Supported currencies:");
@@ -82,8 +84,9 @@ public class Main {
                         System.out.println("Invalid currency");
                     }
                 }
+                case 9 -> HistoryManager.showHistory();
                 default -> System.out.println("Invalid option");
             }
-        } while (option != 9);
+        } while (option != EXIT_OPTION);
     }
 }
